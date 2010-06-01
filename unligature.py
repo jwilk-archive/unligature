@@ -42,20 +42,6 @@ def read_unicode_data(fp, categories):
             if 'LIGATURE' in name:
                 print >>sys.stderr, 'Warning: U+%(code)s (%(name)s) is not supported' % locals()
 
-code_template = '''
-static void unl_scan(char *p)
-{
-    /*!re2c
-    re2c:define:YYCTYPE = "char";
-    re2c:define:YYCURSOR = p;
-    re2c:yyfill:enable = 0;
-    re2c:yych:conversion = 1;
-    re2c:indent:top = 1;
-    %(placeholder)s
-    */
-}
-'''
-
 def hex_escape(text):
     text = text.encode('UTF-8')
     return ''.join('\\x%02x' % ord(ch) for ch in text)
