@@ -25,7 +25,7 @@ class Ligatures(dict):
         return dict.__getitem__(self, key)
 
 def read_unicode_data(fp, categories):
-    for line in sys.stdin:
+    for line in fp:
         code, name, _, _, _, decomposition, _ = line.split(';', 6)
         if not decomposition:
             continue
