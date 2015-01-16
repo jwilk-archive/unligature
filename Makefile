@@ -15,4 +15,4 @@ clean:
 $(p).l: $(p).py $(UNICODE_DATA)
 	python $(<) < $(UNICODE_DATA) > $(@)
 
-# vim:ts=4 sw=4 noet
+# vim:ts=4 sts=4 sw=4 noet
