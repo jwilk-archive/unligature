@@ -1,4 +1,4 @@
 *.py[co]
-unligature
-unligature.c
-unligature.l
+/unligature
+/unligature.c
+/unligature.l
