@@ -12,6 +12,8 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 # General Public License for more details.
 
+from __future__ import print_function
+
 import sys
 
 class Ligatures(dict):
@@ -40,34 +42,34 @@ def read_unicode_data(fp, categories):
                 break
         else:
             if 'LIGATURE' in name:
-                print >>sys.stderr, 'Warning: U+%(code)s (%(name)s) is not supported' % locals()
+                print('Warning: U+%(code)s (%(name)s) is not supported' % locals(), file=sys.stderr)
 
 def hex_escape(text):
     text = text.encode('UTF-8')
     return ''.join('\\x%02x' % ord(ch) for ch in text)
 
 def write_code(ligatures):
-    print '%option noyywrap'
-    print '%{'
-    print '#include <stdio.h>'
+    print('%option noyywrap')
+    print('%{')
+    print('#include <stdio.h>')
     for category in ligatures.iterkeys():
-        print '#define %s 1' % category
+        print('#define %s 1' % category)
     # TODO: support for turning on only selected categories
-    print '%}'
-    print '%%'
+    print('%}')
+    print('%%')
     for category, ligatures in ligatures.iteritems():
         for needle, replacement in ligatures.iteritems():
             needle_c = '"%s"' % hex_escape(needle)
             replacement_c = '"%s"' % hex_escape(replacement)
-            print '%(needle_c)s fputs(%(category)s ? %(replacement_c)s : %(needle_c)s, yyout);' % locals()
-    print '%%'
-    print '''\
+            print('%(needle_c)s fputs(%(category)s ? %(replacement_c)s : %(needle_c)s, yyout);' % locals())
+    print('%%')
+    print('''\
 int main(int argc, char **argv)
 {
     yylex();
     return 0;
 }
-'''
+''')
 
 
 def main():
