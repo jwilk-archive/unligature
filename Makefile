@@ -30,11 +30,11 @@ install: unligature
 	install -d $(DESTDIR)$(PREFIX)/bin
 	install -m755 $(<) $(DESTDIR)$(PREFIX)/bin/$(<)
 
+$(p).l: $(p).py $(UNICODE_DATA)
+	$(PYTHON) $(<) < $(UNICODE_DATA) > $(@)
+
 .PHONY: clean
 clean:
 	rm -f $(p) $(p).l $(p).c $(p).py[co]
-
-$(p).l: $(p).py $(UNICODE_DATA)
-	$(PYTHON) $(<) < $(UNICODE_DATA) > $(@)
 
 # vim:ts=4 sts=4 sw=4 noet
