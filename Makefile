@@ -11,8 +11,6 @@
 # FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
 # details.
 
-p = unligature
-
 UNICODE_DATA = /usr/share/unicode/UnicodeData.txt
 
 PYTHON = python
@@ -30,11 +28,11 @@ install: unligature
 	install -d $(DESTDIR)$(PREFIX)/bin
 	install -m755 $(<) $(DESTDIR)$(PREFIX)/bin/$(<)
 
-$(p).l: $(p).py $(UNICODE_DATA)
+unligature.l: unligature.py $(UNICODE_DATA)
 	$(PYTHON) $(<) < $(UNICODE_DATA) > $(@)
 
 .PHONY: clean
 clean:
-	rm -f $(p) $(p).l $(p).c $(p).py[co]
+	rm -f unligature unligature.l unligature.c *.py[co]
 
 # vim:ts=4 sts=4 sw=4 noet
