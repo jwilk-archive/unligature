@@ -19,6 +19,7 @@ from __future__ import print_function
 import sys
 
 b''  # Python >= 2.6 is required
+exec ''  # Python 2.X is required
 
 class Ligatures(dict):
 
