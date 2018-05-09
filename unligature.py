@@ -18,6 +18,8 @@ from __future__ import print_function
 
 import sys
 
+b''  # Python >= 2.6 is required
+
 class Ligatures(dict):
 
     def __setattr__(self, key, value):
