@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 # encoding=UTF-8
 
-# Copyright © 2010-2017 Jakub Wilk <jwilk@jwilk.net>
+# Copyright © 2010-2018 Jakub Wilk <jwilk@jwilk.net>
 #
-# This package is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; version 2 dated June, 1991.
+# This file is part of unligature.
 #
-# This package is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-# General Public License for more details.
+# unligature is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation.
+#
+# unligature is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+# details.
 
 from __future__ import print_function
 
