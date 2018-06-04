@@ -34,4 +34,6 @@ unligature.l: unligature.py $(UNICODE_DATA)
 clean:
 	rm -f unligature unligature.l unligature.c *.py[co]
 
+.error = GNU make is required
+
 # vim:ts=4 sts=4 sw=4 noet
