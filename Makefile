@@ -14,7 +14,6 @@
 UNICODE_DATA = /usr/share/unicode/UnicodeData.txt
 
 PYTHON = python
-CC = gcc
 CFLAGS = -Wall -O2 -g
 
 PREFIX = /usr/local
