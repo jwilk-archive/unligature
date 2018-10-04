@@ -11,7 +11,7 @@
 # FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
 # details.
 
-UNICODE_DATA = /usr/share/unicode/UnicodeData.txt
+UNICODE_DATA = $(firstword $(wildcard /usr/share/unicode/UnicodeData.txt /usr/share/unicode/ucd/UnicodeData.txt) UnicodeData.txt)
 
 PYTHON = python
 CFLAGS = -Wall -O2 -g
