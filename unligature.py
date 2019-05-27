@@ -46,7 +46,7 @@ def read_unicode_data(fp, categories):
                 break
         else:
             if 'LIGATURE' in name:
-                print('Warning: U+%(code)s (%(name)s) is not supported' % locals(), file=sys.stderr)
+                print('Warning: U+{code} ({name}) is not supported'.format(code=code, name=name), file=sys.stderr)
 
 def hex_escape(text):
     text = text.encode('UTF-8')
@@ -65,7 +65,7 @@ def write_code(ligatures):
         for needle, replacement in ligatures.iteritems():
             needle_c = '"%s"' % hex_escape(needle)
             replacement_c = '"%s"' % hex_escape(replacement)
-            print('%(needle_c)s fputs(%(category)s ? %(replacement_c)s : %(needle_c)s, yyout);' % locals())
+            print('{ndl} fputs({cat} ? {rpl} : {ndl}, yyout);'.format(ndl=needle_c, cat=category, rpl=replacement_c))
     print('%%')
     print('''\
 int main(int argc, char **argv)
