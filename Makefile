@@ -19,13 +19,15 @@ CFLAGS = -Wall -O2 -g
 PREFIX = /usr/local
 DESTDIR =
 
+bindir = $(PREFIX)/bin
+
 .PHONY: all
 all: unligature
 
 .PHONY: install
 install: unligature
-	install -d $(DESTDIR)$(PREFIX)/bin
-	install -m755 $(<) $(DESTDIR)$(PREFIX)/bin/$(<)
+	install -d $(DESTDIR)$(bindir)
+	install -m755 $(<) $(DESTDIR)$(bindir)/$(<)
 
 unligature.l: unligature.py $(UNICODE_DATA)
 	$(PYTHON) $(<) < $(UNICODE_DATA) > $(@)
