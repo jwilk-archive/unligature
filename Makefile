@@ -32,6 +32,14 @@ install: unligature
 unligature.l: unligature.py $(UNICODE_DATA)
 	$(PYTHON) $(<) < $(UNICODE_DATA) > $(@)
 
+.PHONY: test
+test: unligature
+	prove -v
+
+.PHONY: test-installed
+test-installed: $(or $(shell command -v unligature;),$(bindir)/unligature)
+	UNLIGATURE_TEST_TARGET=unligature prove -v
+
 .PHONY: clean
 clean:
 	rm -f unligature unligature.l unligature.c *.py[co]
