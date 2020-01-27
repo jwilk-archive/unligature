@@ -19,8 +19,8 @@ install:
 - $if_rstlint pip install restructuredtext-lint pygments
 script:
 - make
+- make test
 - make install PREFIX=~/.local
-- echo ﬂuorograﬁa | unligature
 - python -m pydiatra .
 - pyflakes .
 - $if_rstlint restructuredtext-lint --encoding=UTF-8 README
