@@ -5,6 +5,9 @@ jobs:
   - python: "2.6"
     dist: trusty
   - python: "2.7"
+  allow_failures:
+  - python: "2.6"
+    dist: trusty
 addons:
   apt:
     packages:
