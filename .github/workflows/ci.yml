@@ -42,11 +42,11 @@ jobs:
         make test-installed
     - name: run pydiatra
       run: |
-        python -m pip install --user pydiatra
+        python -m pip install pydiatra
         python -m pydiatra -v .
     - name: run pyflakes
       run: |
-        python -m pip install --user pyflakes
+        python -m pip install pyflakes
         python -m pyflakes .
     - name: check README syntax
       run: |
